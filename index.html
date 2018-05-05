@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Sleep Vs Grades</title>
+    <title>Grade Optimizer</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -25,51 +25,20 @@
     <nav id="nav">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-            <li><a href="right-sidebar.html">Right Sidebar</a></li>
-            <li><a href="no-sidebar.html">No Sidebar</a></li>
-            <li><a href="#" class="button special">Sign Up</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
         </ul>
     </nav>
 </header>
 <!-- Banner -->
 <section id="banner">
     <div class="inner">
-        <h2>Sleep Vs Grades</h2>
+        <h2>Grade Optimizer</h2>
         <ul class="actions">
             <li><a href="#content" class="button big special">Sign Up</a></li>
             <li><a href="#elements" class="button big alt">Learn More</a></li>
         </ul>
     </div>
 </section>
-
-<!-- One -->
-<section id="one" class="wrapper style1">
-    <div id="canvas-container">
-        <p align="center">
-            <canvas id="myCanvas" width="800" height="600"></canvas>
-        </p>
-    </div>
-</section>
-
-<!-- JS -->
-<script>
-    var canvas = document.getElementById("myCanvas")
-    var ctx = canvas.getContext("2d");
-
-    function draw(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        ctx.beginPath()
-        ctx.rect(0, 0, 800, 600)
-        ctx.fillStyle = "#003399";
-        ctx.fill()
-        ctx.closePath()
-    }
-
-    requestAnimationFrame(draw);
-</script>
-
 
 <!-- Footer -->
 <footer id="footer">
