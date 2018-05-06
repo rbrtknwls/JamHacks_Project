@@ -56,9 +56,80 @@
                             document.getElementById("msgAfterLoad").innerText = ""
                             await sleep(1000);
                             document.getElementById("loadingLMAO").src = "images/white.png"
-                            tstscore = document.getElementById("testScores").value
-                            stdyamt = document.getElementById("amountStudied").value
-                            
+                            ts = document.getElementById("testScores").value
+                            st = document.getElementById("amountStudied").value
+                            if (ts == 100) {
+                                if (st >= 9) document.getElementById("msgAfterLoad").innerText = "3 - 5.5"
+                                else if (st >= 8) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st >= 7) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st >= 6) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else if (st >= 5) document.getElementById("msgAfterLoad").innerText = "5 - 7.5"
+                                else if (st >= 4) document.getElementById("msgAfterLoad").innerText = "5.5 - 8"
+                                else if (st >= 3) document.getElementById("msgAfterLoad").innerText = "6 - 8.5"
+                                else if (st >= 2) document.getElementById("msgAfterLoad").innerText = "6.5 - 9"
+                                else if (st >= 1) document.getElementById("msgAfterLoad").innerText = "7 - 9.5"
+                                else document.getElementById("msgAfterLoad").innerText = "7.25 - 10"
+                            }
+                            else if (ts >= 90) {
+                                if (st > 9) document.getElementById("msgAfterLoad").innerText = "2.5 - 5"
+                                else if (st > 8) document.getElementById("msgAfterLoad").innerText = "4 - 5.5"
+                                else if (st > 7) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st > 6) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st > 5) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else if (st > 4) document.getElementById("msgAfterLoad").innerText = "5 - 7.5"
+                                else if (st > 3) document.getElementById("msgAfterLoad").innerText = "5.5 - 8"
+                                else if (st > 2) document.getElementById("msgAfterLoad").innerText = "6 - 8.5"
+                                else if (st > 1) document.getElementById("msgAfterLoad").innerText = "6.5 - 9"
+                                else document.getElementById("msgAfterLoad").innerText = "6.75 - 9.5"
+                            }
+                            else if (ts >= 80) {
+                                if (st > 9) document.getElementById("msgAfterLoad").innerText = "2 - 4.5"
+                                else if (st > 8) document.getElementById("msgAfterLoad").innerText = "2.5 - 5"
+                                else if (st > 7) document.getElementById("msgAfterLoad").innerText = "3 - 5.5"
+                                else if (st > 6) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st > 5) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st > 4) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else if (st > 3) document.getElementById("msgAfterLoad").innerText = "5 - 7.5"
+                                else if (st > 2) document.getElementById("msgAfterLoad").innerText = "5.5 - 8"
+                                else if (st > 1) document.getElementById("msgAfterLoad").innerText = "6 - 8.5"
+                                else document.getElementById("msgAfterLoad").innerText = "6.75 - 9"
+                            }
+                            else if (ts >= 70) {
+                                if (st > 9) document.getElementById("msgAfterLoad").innerText = "1.5 - 4"
+                                else if (st > 8) document.getElementById("msgAfterLoad").innerText = "2 - 4.5"
+                                else if (st > 7) document.getElementById("msgAfterLoad").innerText = "2.5 - 5"
+                                else if (st > 6) document.getElementById("msgAfterLoad").innerText = "3 - 5.5"
+                                else if (st > 5) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st > 4) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st > 3) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else if (st > 2) document.getElementById("msgAfterLoad").innerText = "5 - 7.5"
+                                else if (st > 1) document.getElementById("msgAfterLoad").innerText = "5.5 - 8"
+                                else document.getElementById("msgAfterLoad").innerText = "6.25 - 8.5"
+                            }
+                            else if (ts >= 60) {
+                                if (st > 9) document.getElementById("msgAfterLoad").innerText = "1 - 3.5"
+                                else if (st > 8) document.getElementById("msgAfterLoad").innerText = "1.5 - 4"
+                                else if (st > 7) document.getElementById("msgAfterLoad").innerText = "2 - 4.5"
+                                else if (st > 6) document.getElementById("msgAfterLoad").innerText = "2.5 - 5"
+                                else if (st > 5) document.getElementById("msgAfterLoad").innerText = "3 - 5.5"
+                                else if (st > 4) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st > 3) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st > 2) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else if (st > 1) document.getElementById("msgAfterLoad").innerText = "5 - 7.5"
+                                else document.getElementById("msgAfterLoad").innerText = "5.75 - 8"
+                            }
+                            else {
+                                if (st > 9) document.getElementById("msgAfterLoad").innerText = "0.5 - 3"
+                                else if (st > 8) document.getElementById("msgAfterLoad").innerText = "1 - 3.5"
+                                else if (st > 7) document.getElementById("msgAfterLoad").innerText = "1.5 - 4"
+                                else if (st > 6) document.getElementById("msgAfterLoad").innerText = "2 - 4.5"
+                                else if (st > 5) document.getElementById("msgAfterLoad").innerText = "2.5 - 5"
+                                else if (st > 4) document.getElementById("msgAfterLoad").innerText = "3 - 5.5"
+                                else if (st > 3) document.getElementById("msgAfterLoad").innerText = "3.5 - 6"
+                                else if (st > 2) document.getElementById("msgAfterLoad").innerText = "4 - 6.5"
+                                else if (st > 1) document.getElementById("msgAfterLoad").innerText = "4.5 - 7"
+                                else document.getElementById("msgAfterLoad").innerText = "5.25 - 7.5"
+                            }
                         }
                     </script>
                     <div class="row">
@@ -74,5 +145,5 @@
     </header>
 </section>
 </body>
-    
+
 </html>
