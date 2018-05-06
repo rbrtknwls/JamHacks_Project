@@ -29,7 +29,17 @@
             </ul>
         </nav>
     </header>
-    
+
+    <br>
+    <p>Hours of sleep: <input id = "sleep" type = "number" value = "1"> Difficulty of test: <input type="range" min="1" max="100" value="50" class="slider" id="difficulty">Amount studied so far: <input id = "studypre" type = "number" value = "1"></p>
+    <p id="sliderValue"></p>
+    <script>
+        document.getElementById("difficulty").oninput = function(){
+            document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
+        }
+        document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
+    </script>
+
 <div class="chart-container" style="height:100vh; width:70vw">
     <canvas id="StudyingChart" width="600" height="400"></canvas>
     <canvas id="SleepChart" width="600" height="400"></canvas>
@@ -38,6 +48,7 @@
 
 <!-- JS -->
 <script>
+
     var ctx = document.getElementById("StudyingChart").getContext('2d');
     var cts = document.getElementById("SleepChart").getContext('2d');
     var ctf = document.getElementById("FinalChart").getContext('2d');
