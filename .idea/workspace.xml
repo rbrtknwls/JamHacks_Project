@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="baed4996-3d5a-4bb3-8ea0-6a43401e4ad3" name="Default" comment="" />
+    <list default="true" id="baed4996-3d5a-4bb3-8ea0-6a43401e4ad3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/js/algorithm.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,13 +16,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-129">
-              <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+            <state relative-caret-position="530">
+              <caret line="97" column="24" lean-forward="true" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="algorithm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/algorithm.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -30,6 +37,7 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -57,8 +65,9 @@
         <option value="$PROJECT_DIR$/calculator.html" />
         <option value="$PROJECT_DIR$/calcsleep.html" />
         <option value="$PROJECT_DIR$/calcstudy.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/learnmore.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/algorithm.js" />
       </list>
     </option>
   </component>
@@ -156,12 +165,12 @@
       <updated>1525550256809</updated>
       <workItem from="1525550261126" duration="9173000" />
       <workItem from="1525568190674" duration="4438000" />
-      <workItem from="1525576251231" duration="9353000" />
+      <workItem from="1525576251231" duration="9610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22964000" />
+    <option name="totallyTimeSpent" value="23221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -274,10 +283,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-129">
-          <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+        <state relative-caret-position="530">
+          <caret line="97" column="24" lean-forward="true" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/algorithm.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
