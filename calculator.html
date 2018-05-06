@@ -17,44 +17,91 @@
     </noscript>
 </head>
 <body id="top">
-
+    
+    <!--Header-->
+    <header id="header" class="skel-layers-fixed">
+        <h1><a href="#"></a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href= "learnmore.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+    
 <div class="chart-container" style="height:100vh; width:70vw">
-    <canvas id="myChart" width="600" height="400"></canvas>
+    <canvas id="StudyingChart" width="600" height="400"></canvas>
+    <canvas id="SleepChart" width="600" height="400"></canvas>
 </div>
 
 <!-- JS -->
 <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-
+    var ctx = document.getElementById("StudyingChart").getContext('2d');
+    var cts = document.getElementById("SleepChart").getContext('2d');
+    
+    function ps(st) {
+        return(100 - ((0.009 *st) + 3.2))
+    }
+    
     function pc(st) {
         // 1.67705098312 * √x + 55
         return((2.25 * Math.sqrt(st)) + 65)
     }
 
     totalMins = 720
-    time = []
+    
+    timest = []
+    timesl = []
+    
     for(i = -1; i < totalMins; i+=60){
-        time.push(i+1)
+        timest.push(i+1)
+        timesl.push(i+1)
     }
 
 
-    dataPre = []
-    for (i = 0; i < time.length; i++) {
-        if (pc(time[i]) > 100) dataPre.push(100);
-        else dataPre.push(pc(time[i]));
+    dataPrest = []
+    dataPresl = []
+    for (i = 0; i < timest.length; i++) {
+        if (pc(timest[i]) > 100) dataPrest.push(100);
+        else dataPrest.push(pc(timest[i]));
     }
-    timeMinList = time
-    for(i = 0; i < timeMinList.length; i++){
-        timeMinList[i] = timeMinList[i]/60
+    
+    for (i = 0; i < timesl.length; i++) {
+        if (pc(timesl[i]) < 0) dataPresl.push(0);
+        else dataPresl.push(ps(timesl[i]));
+    }
+    timeMinListst = timest
+    timeMinListsl = timesl
+    for(i = 0; i < timeMinListst.length; i++){
+        timeMinListst[i] = timeMinListst[i]/60
+        timeMinListsl[i] = timeMinListsl[i]/60
     }
 
-    var myChart = new Chart(ctx, {
+    var StudyingChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: timeMinList, //Time studying
+            labels: timeMinListst, //Time studying
             datasets: [{
                 label: 'Time studying',
-                data: dataPre, //Grade
+                data: dataPrest, //Grade
+                backgroundColor: [
+                    'rgba(255, 0, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 0, 0)'
+                ],
+                borderWidth: 1
+            }]
+        }
+    });
+    var SleepChart = new Chart(cts, {
+        type: 'line',
+        data: {
+            labels: timeMinListsl, //Time studying
+            datasets: [{
+                label: 'Time studying',
+                data: dataPresl, //Grade
                 backgroundColor: [
                     'rgba(255, 0, 0, 0.2)'
                 ],
