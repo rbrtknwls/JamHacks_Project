@@ -33,12 +33,29 @@
     <header class="major">
         <h2>Optimal Mark Calculator</h2>
     </header>
-    <div class="container">
+     <div class="container">
         <section class="special box">
             <div class="row">
-                <div class="4u">
-                    <h3>Hours of sleep</h3>
+                <div class="6u">
+                    <h3>Amount of Time</h3>
                     <p><input id="sleep" type="number" value="1"></p>
+                </div>
+                <div class="6u">
+                    <h3>Sleep Gotten Night before</h3>
+                    <input id="studypre" type="number" value="1">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        
+        <section class="special box">
+            <h2>Sample Score Graph</h2>
+            <div class="row">
+                <div class="4u">
+                    <h3>Studying Efficiency</h3>
+                    <p><input id="sleep" type="number" value="100">%</p>
                 </div>
                 <div class="4u">
                     <h3>Difficulty of Test</h3>
@@ -51,19 +68,15 @@
                     </script>
                 </div>
                 <div class="4u">
-                    <h3>Amount Studied</h3>
-                    <input id="studypre" type="number" value="1">
+                    <h3>Sleeping Efficiency</h3>
+                    <p><input id="studypre" type="number" value="1">%</p>
                 </div>
             </div>
             <div class="12u">
-                <section class="special box">
-                    <button onclick="runner()" class="button">Calculate Answer</button>
-                </section>
-            </div>
-
-            <div class="12u">
                 <canvas id="StudyingChart"></canvas>
             </div>
+            <div class="12u"><h1></h1></div>
+            <button onclick="runner()" class="button">Refresh Graph</button>
         </section>
     </div>
 
