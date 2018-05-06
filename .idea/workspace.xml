@@ -28,8 +28,17 @@
       <file leaf-file-name="calcsleep.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calcsleep.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1595">
-              <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
+            <state relative-caret-position="527">
+              <caret line="138" column="90" lean-forward="true" selection-start-line="138" selection-start-column="90" selection-end-line="138" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calcstudy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/calcstudy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -167,12 +176,12 @@
       <updated>1525550256809</updated>
       <workItem from="1525550261126" duration="9173000" />
       <workItem from="1525568190674" duration="4438000" />
-      <workItem from="1525576251231" duration="7343000" />
+      <workItem from="1525576251231" duration="7576000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20954000" />
+    <option name="totallyTimeSpent" value="21187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -269,13 +278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calcstudy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learnmore.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -283,10 +285,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/calcstudy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calcsleep.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1595">
-          <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
+        <state relative-caret-position="527">
+          <caret line="138" column="90" lean-forward="true" selection-start-line="138" selection-start-column="90" selection-end-line="138" selection-end-column="90" />
         </state>
       </provider>
     </entry>
