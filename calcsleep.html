@@ -39,39 +39,39 @@
             <p>Based off your most recent test and amount you studied for it</p>
             <div class="row">
                 <div class="6u">
-                    <p>Recent Test Score (%): <input id = "testScores" type = "number" value = "1" max = 100 min = 0></p>
+                    <p>Recent Test Score (%): <input id="testScores" type="number" value="1" max=100 min=0></p>
                 </div>
                 <div class="6u">
-                    <p>Amount Studied (hrs): <input id = "amountStudied" type = "number" value = "1" min = 0></p>
+                    <p>Amount Studied (hrs): <input id="amountStudied" type="number" value="1" min=0></p>
                 </div>
                 <div class="12u">
-                    <button onclick="toggleLoading()">Calculate</button>
+                    <button onclick="toggleLoading()" class="button">Calculate</button>
                     <script>
                         function sleep(ms) {
                             return new Promise(resolve => setTimeout(resolve, ms));
                         }
-                        async function toggleLoading(){
-                            document.getElementById("loadingLMAO").src="images/loading.gif"
+
+                        async function toggleLoading() {
+                            document.getElementById("loadingLMAO").src = "images/loading.gif"
                             document.getElementById("msgAfterLoad").innerText = ""
                             await sleep(1000);
-                            document.getElementById("loadingLMAO").src="images/white.png"
+                            document.getElementById("loadingLMAO").src = "images/white.png"
                             document.getElementById("msgAfterLoad").innerText = "DONE!"
                         }
                     </script>
+                    <div class="row">
+                        <div class="12u">
+                            <br>
+                            <center><img src="images/white.png" id="loadingLMAO"></center>
+                            <center><h2 id="msgAfterLoad"></h2></center>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
     </header>
     <div class="container">
-        <div class="row">
-            <div class="12u">
-                <section>
-                    <center><img src="images/white.png" id="loadingLMAO""></center>
-                    <center><h2 id="msgAfterLoad"></h2></center>
-                </section>
-            </div>
-        </div>
         <hr class="major"/>
         <div class="row">
             <div class="6u">
