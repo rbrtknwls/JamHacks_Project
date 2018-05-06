@@ -33,49 +33,66 @@
 <div class="chart-container" style="height:100vh; width:70vw">
     <canvas id="StudyingChart" width="600" height="400"></canvas>
     <canvas id="SleepChart" width="600" height="400"></canvas>
+    <canvas id="FinalChart" width="600" height="400"></canvas>
 </div>
 
 <!-- JS -->
 <script>
     var ctx = document.getElementById("StudyingChart").getContext('2d');
     var cts = document.getElementById("SleepChart").getContext('2d');
+    var ctf = document.getElementById("FinalChart").getContext('2d');
+    
+    function pf(st) {
+        return(pc(st) - (100-ps(st)))
+    }
     
     function ps(st) {
-        return(100 - ((0.009 *st) + 3.2))
+        return(100- ((st *st) + 3.2)/90783)
     }
     
     function pc(st) {
         // 1.67705098312 * √x + 55
-        return((2.25 * Math.sqrt(st)) + 65)
+        return((2 * Math.sqrt(st)) + 65)
     }
 
     totalMins = 720
     
     timest = []
     timesl = []
+    timef = []
     
     for(i = -1; i < totalMins; i+=60){
         timest.push(i+1)
         timesl.push(i+1)
+        timef.push(i+1)
     }
 
 
     dataPrest = []
     dataPresl = []
+    dataPref = []
     for (i = 0; i < timest.length; i++) {
         if (pc(timest[i]) > 100) dataPrest.push(100);
         else dataPrest.push(pc(timest[i]));
     }
     
     for (i = 0; i < timesl.length; i++) {
-        if (pc(timesl[i]) < 0) dataPresl.push(0);
+        if (ps(timesl[i]) < 0) dataPresl.push(0);
         else dataPresl.push(ps(timesl[i]));
+    }
+    
+    for (i = 0; i < timef.length; i++) {
+        if (pf(timef[i]) > 100) dataPref.push(100);
+        else dataPref.push(pf(timef[i]));
+        console.log(pf(timef[i]));
     }
     timeMinListst = timest
     timeMinListsl = timesl
+    timeMinListf = timef
     for(i = 0; i < timeMinListst.length; i++){
         timeMinListst[i] = timeMinListst[i]/60
         timeMinListsl[i] = timeMinListsl[i]/60
+        timeMinListf[i] = timeMinListf[i]/60
     }
 
     var StudyingChart = new Chart(ctx, {
@@ -83,7 +100,7 @@
         data: {
             labels: timeMinListst, //Time studying
             datasets: [{
-                label: 'Time studying',
+                label: 'Studying Coefficient',
                 data: dataPrest, //Grade
                 backgroundColor: [
                     'rgba(255, 0, 0, 0.2)'
@@ -92,26 +109,30 @@
                     'rgb(255, 0, 0)'
                 ],
                 borderWidth: 1
-            }]
-        }
-    });
-    var SleepChart = new Chart(cts, {
-        type: 'line',
-        data: {
-            labels: timeMinListsl, //Time studying
-            datasets: [{
-                label: 'Time studying',
+            },{
+                label: 'Amount of Sleep',
                 data: dataPresl, //Grade
                 backgroundColor: [
-                    'rgba(255, 0, 0, 0.2)'
+                    'rgba(0, 0, 255, 0.2)'
                 ],
                 borderColor: [
-                    'rgb(255, 0, 0)'
+                    'rgb(0, 0, 255)'
+                ],
+                borderWidth: 1
+            },{
+                    label: 'Time studying',
+                data: dataPref, //Grade
+                backgroundColor: [
+                    'rgba(255, 255, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 255, 0)'
                 ],
                 borderWidth: 1
             }]
         }
     });
+
 </script>
 
 </body>
