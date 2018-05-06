@@ -38,11 +38,11 @@
             <div class="row">
                 <div class="6u">
                     <h3>Amount of Time</h3>
-                    <p><input id="specificSleep" type="number" value="1"></p>
+                    <p><input id="time" type="number" value="1"></p>
                 </div>
                 <div class="6u">
                     <h3>Sleep Gotten Night before</h3>
-                    <input id="specificStudypre" type="number" value="1">
+                    <input id="specificStudypre" type="number" value="950">
                 </div>
                 <div class="12u">
                     <button onclick="toggleLoading()" class="button">Calculate</button>
@@ -56,7 +56,37 @@
                             document.getElementById("msgAfterLoad").innerText = ""
                             await sleep(1000);
                             document.getElementById("loadingLMAO").src = "images/white.png"
-                            document.getElementById("msgAfterLoad").innerText = "DONE!"
+                            min = document.getElementById("time").value;
+                            sleepamt = document.getElementById("specificStudypre").value;
+                            if (sleepamt < 570){
+                                if (min >= 1380){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.67) + " min  Sleeping = " + (min * 0.33) + " min"
+                                }else if (min >= 750){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.64) + " min  Sleeping = " + (min * 0.36) + " min"
+                                }else if (min >= 450){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.53) + " min  Sleeping = " + (min * 0.47) + " min"
+                                }else if (min >= 200){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.37) + " min  Sleeping = " + (min * 0.63) + " min"
+                                }else{
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.23) + " min  Sleeping = " + (min*77) + " min"
+                                }
+                            }else{
+                                if (min >= 1380){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.27) + " min  Sleeping = " + (min * 0.73) + " min"
+                                }else if (min >= 750){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.64) + " min  Sleeping = " + (min * 0.36) + " min"
+                                }else if (min >= 450){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.73) + " min  Sleeping = " + (min * 0.27) + " min"
+                                }else if (min >= 200){
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min*0.82) + " min  Sleeping = " + (min * 0.18) + " min"
+                                }else{
+                                    document.getElementById("msgAfterLoad").innerText = "Studying = " + (min) + " min  Sleeping = " + (0) + " min"
+                                }
+
+
+                            }
+    
+                            
                         }
                     </script>
                     <div class="row">
@@ -76,22 +106,14 @@
             <h2>Sample Score Graph</h2>
             <div class="row">
                 <div class="4u">
-                    <h3>Studying Efficiency</h3>
-                    <p><input id="sleep" type="number" value="100">%</p>
+                    <h1></h1>
                 </div>
                 <div class="4u">
                     <h3>Difficulty of Test</h3>
                     <p><input type="range" min="1" max="100" value="50" class="slider" id="difficulty"></p>
-                    <script>
-                        document.getElementById("difficulty").oninput = function () {
-                            document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
-                        }
-                        document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
-                    </script>
                 </div>
                 <div class="4u">
-                    <h3>Sleeping Efficiency</h3>
-                    <p><input id="studypre" type="number" value="1">%</p>
+                    <h1></h1>
                 </div>
             </div>
             <div class="12u">
@@ -202,18 +224,17 @@
 
     function runner() {
         var ctx = document.getElementById("StudyingChart").getContext('2d');
-
         function pf(st) {
             return (pc(st) - (100 - ps(st)))
         }
 
         function ps(st) {
-            return (100 - ((st * st) + 3.2) / 90783)
+            return (100 - (((st * st) + 3.2) / 90783))
         }
 
         function pc(st) {
             // 1.67705098312 * √x + 55
-            return ((2 * Math.sqrt(st)) + 65 - (document.getElementById("difficulty").value - 50) / 6)
+            return (((2 * Math.sqrt(st)) + 65 - (document.getElementById("difficulty").value - 50) / 6))
         }
 
         totalMins = 720
