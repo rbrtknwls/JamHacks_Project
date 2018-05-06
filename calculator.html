@@ -17,167 +17,167 @@
     </noscript>
 </head>
 <body id="top">
-    
-    <!--Header-->
-    <header id="header" class="skel-layers-fixed">
-        <h1><a href="#"></a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href= "learnmore.html">Research</a></li>
-            </ul>
-        </nav>
+
+<!--Header-->
+<header id="header" class="skel-layers-fixed">
+    <h1><a href="#"></a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learnmore.html">Research</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="one" class="wrapper style1">
+    <header class="major">
+        <h2>Optimal Mark Calculator</h2>
     </header>
-    
-    <section id="one" class="wrapper style1">
-            <header class="major">
-				<h2>Optimal Mark Calculator</h2>
-            </header>
-            <div class="container">
-                <section class="special box">
-				<div class="row">
-                    <div class="4u">
-                        <h3>Hours of sleep</h3>
-                        <p> <input id = "sleep" type = "number" value = "1"></p>
-                    </div>
-                    <div class="4u">
-                        <h3>Difficulty of Test</h3>
-                        <p><input type="range" min="1" max="100" value="50" class="slider" id="difficulty"></p>
-                        <script>
-                            document.getElementById("difficulty").oninput = function(){
-                                document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
-                            }
-                            document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
-                        </script>
-                    </div>
-                        <div class="4u">
-                                <h3>Amount Studied</h3>
-                                <input id = "studypre" type = "number" value = "1">
-                        </div>
-                    </div>
-                <div class="12u">
-                        <section class="special box">
-                            <h2>Calculate Answer</h2>
-                        </section>
-                    </div>
-                
-                <div class="12u">
-                    <canvas id="StudyingChart"></canvas>
+    <div class="container">
+        <section class="special box">
+            <div class="row">
+                <div class="4u">
+                    <h3>Hours of sleep</h3>
+                    <p><input id="sleep" type="number" value="1"></p>
                 </div>
+                <div class="4u">
+                    <h3>Difficulty of Test</h3>
+                    <p><input type="range" min="1" max="100" value="50" class="slider" id="difficulty"></p>
+                    <script>
+                        document.getElementById("difficulty").oninput = function () {
+                            document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
+                        }
+                        document.getElementById("sliderValue").innerText = document.getElementById("difficulty").value
+                    </script>
+                </div>
+                <div class="4u">
+                    <h3>Amount Studied</h3>
+                    <input id="studypre" type="number" value="1">
+                </div>
+            </div>
+            <div class="12u">
+                <section class="special box">
+                    <button onclick="runner()" class="button">Calculate Answer</button>
                 </section>
             </div>
-        
-        </section>    
+
+            <div class="12u">
+                <canvas id="StudyingChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+</section>
 
 
 <!-- JS -->
 <script>
     var ctx = document.getElementById("StudyingChart").getContext('2d');
 
-        function pf(st) {
-            return(pc(st) - (100-ps(st)))
+    function pf(st) {
+        return (pc(st) - (100 - ps(st)))
+    }
+
+    function ps(st) {
+        return (100 - ((st * st) + 3.2) / 90783)
+    }
+
+    function pc(st) {
+        // 1.67705098312 * √x + 55
+        return ((2 * Math.sqrt(st)) + 65)
+    }
+
+    totalMins = 720
+
+    timest = []
+    timesl = []
+    timef = []
+
+    for (i = -1; i < totalMins; i += 60) {
+        timest.push(i + 1)
+        timesl.push(i + 1)
+        timef.push(i + 1)
+    }
+
+
+    dataPrest = []
+    dataPresl = []
+    dataPref = []
+    for (i = 0; i < timest.length; i++) {
+        if (pc(timest[i]) > 100) dataPrest.push(100);
+        else dataPrest.push(pc(timest[i]));
+    }
+
+    for (i = 0; i < timesl.length; i++) {
+        if (ps(timesl[i]) < 0) dataPresl.push(0);
+        else dataPresl.push(ps(timesl[i]));
+    }
+
+    for (i = 0; i < timef.length; i++) {
+        if (pf(timef[i]) > 100) dataPref.push(100);
+        else dataPref.push(pf(timef[i]));
+        console.log(pf(timef[i]));
+    }
+    timeMinListst = timest
+    timeMinListsl = timesl
+    timeMinListf = timef
+    for (i = 0; i < timeMinListst.length; i++) {
+        timeMinListst[i] = timeMinListst[i] / 60
+        timeMinListsl[i] = timeMinListsl[i] / 60
+        timeMinListf[i] = timeMinListf[i] / 60
+    }
+
+    var StudyingChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: timeMinListst, //Time studying
+            datasets: [{
+                label: 'Studying Coefficient',
+                data: dataPrest, //Studying
+                backgroundColor: [
+                    'rgba(255, 0, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 0, 0)'
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Amount of Sleep',
+                data: dataPresl, //Sleep
+                backgroundColor: [
+                    'rgba(0, 0, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(0, 0, 255)'
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Time studying',
+                data: dataPref, //Final
+                backgroundColor: [
+                    'rgba(255, 255, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 255, 0)'
+                ],
+                borderWidth: 1
+            }]
         }
-
-        function ps(st) {
-            return(100- ((st *st) + 3.2)/90783)
-        }
-
-        function pc(st) {
-            // 1.67705098312 * √x + 55
-            return((2 * Math.sqrt(st)) + 65)
-        }
-
-        totalMins = 720
-
-        timest = []
-        timesl = []
-        timef = []
-
-        for(i = -1; i < totalMins; i+=60){
-            timest.push(i+1)
-            timesl.push(i+1)
-            timef.push(i+1)
-        }
-
-
-        dataPrest = []
-        dataPresl = []
-        dataPref = []
-        for (i = 0; i < timest.length; i++) {
-            if (pc(timest[i]) > 100) dataPrest.push(100);
-            else dataPrest.push(pc(timest[i]));
-        }
-
-        for (i = 0; i < timesl.length; i++) {
-            if (ps(timesl[i]) < 0) dataPresl.push(0);
-            else dataPresl.push(ps(timesl[i]));
-        }
-
-        for (i = 0; i < timef.length; i++) {
-            if (pf(timef[i]) > 100) dataPref.push(100);
-            else dataPref.push(pf(timef[i]));
-            console.log(pf(timef[i]));
-        }
-        timeMinListst = timest
-        timeMinListsl = timesl
-        timeMinListf = timef
-        for(i = 0; i < timeMinListst.length; i++){
-            timeMinListst[i] = timeMinListst[i]/60
-            timeMinListsl[i] = timeMinListsl[i]/60
-            timeMinListf[i] = timeMinListf[i]/60
-        }
-
-        var StudyingChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: timeMinListst, //Time studying
-                datasets: [{
-                    label: 'Studying Coefficient',
-                    data: dataPrest, //Studying
-                    backgroundColor: [
-                        'rgba(255, 0, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 0, 0)'
-                    ],
-                    borderWidth: 1
-                },{
-                    label: 'Amount of Sleep',
-                    data: dataPresl, //Sleep
-                    backgroundColor: [
-                        'rgba(0, 0, 255, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(0, 0, 255)'
-                    ],
-                    borderWidth: 1
-                },{
-                        label: 'Time studying',
-                    data: dataPref, //Final
-                    backgroundColor: [
-                        'rgba(255, 255, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 255, 0)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-    document.getElementById("difficulty").oninput = function(){
+    });
+    function runner() {
         var ctx = document.getElementById("StudyingChart").getContext('2d');
 
         function pf(st) {
-            return(pc(st) - (100-ps(st)))
+            return (pc(st) - (100 - ps(st)))
         }
 
         function ps(st) {
-            return(100 - ((st *st) + 3.2)/90783)
+            return (100 - ((st * st) + 3.2) / 90783)
         }
 
         function pc(st) {
             // 1.67705098312 * √x + 55
-            return((2 * Math.sqrt(st)) + 65-(document.getElementById("difficulty").value-50)/6)
+            return ((2 * Math.sqrt(st)) + 65 - (document.getElementById("difficulty").value - 50) / 6)
         }
 
         totalMins = 720
@@ -186,10 +186,10 @@
         timesl = []
         timef = []
 
-        for(i = -1; i < totalMins; i+=60){
-            timest.push(i+1)
-            timesl.push(i+1)
-            timef.push(i+1)
+        for (i = -1; i < totalMins; i += 60) {
+            timest.push(i + 1)
+            timesl.push(i + 1)
+            timef.push(i + 1)
         }
 
 
@@ -214,10 +214,10 @@
         timeMinListst = timest
         timeMinListsl = timesl
         timeMinListf = timef
-        for(i = 0; i < timeMinListst.length; i++){
-            timeMinListst[i] = timeMinListst[i]/60
-            timeMinListsl[i] = timeMinListsl[i]/60
-            timeMinListf[i] = timeMinListf[i]/60
+        for (i = 0; i < timeMinListst.length; i++) {
+            timeMinListst[i] = timeMinListst[i] / 60
+            timeMinListsl[i] = timeMinListsl[i] / 60
+            timeMinListf[i] = timeMinListf[i] / 60
         }
 
         var StudyingChart = new Chart(ctx, {
@@ -234,7 +234,7 @@
                         'rgb(255, 0, 0)'
                     ],
                     borderWidth: 1
-                },{
+                }, {
                     label: 'Amount of Sleep',
                     data: dataPresl, //Sleep
                     backgroundColor: [
@@ -244,8 +244,8 @@
                         'rgb(0, 0, 255)'
                     ],
                     borderWidth: 1
-                },{
-                        label: 'Time studying',
+                }, {
+                    label: 'Time studying',
                     data: dataPref, //Final
                     backgroundColor: [
                         'rgba(255, 255, 0, 0.2)'
