@@ -32,15 +32,11 @@
     
 <div class="chart-container" style="height:100vh; width:70vw">
     <canvas id="StudyingChart" width="600" height="400"></canvas>
-    <canvas id="SleepChart" width="600" height="400"></canvas>
-    <canvas id="FinalChart" width="600" height="400"></canvas>
 </div>
 
 <!-- JS -->
 <script>
     var ctx = document.getElementById("StudyingChart").getContext('2d');
-    var cts = document.getElementById("SleepChart").getContext('2d');
-    var ctf = document.getElementById("FinalChart").getContext('2d');
     
     function pf(st) {
         return(pc(st) - (100-ps(st)))
